@@ -17,6 +17,16 @@ const { SubMenu } = Menu;
 const MenuConfig = [
 ];
 
+const MenuAdmin = [
+  {
+    label: 'Home',
+    link: '/welcome',
+    id: 'home',
+    disabled: false,
+    link_type: 'internal',
+    link_target: '',
+  },
+];
 
 const renderMenu=(data)=>{
   return data.map((item)=>{
@@ -79,7 +89,7 @@ const SidebarContent = ({sidebarCollapsed, setSidebarCollapsed}) => {
 
   const {authUser} = useSelector(({auth}) => auth);
 
-  if (authUser === null || localStorage.getItem("menu") === null) {
+  if (authUser === null ) {
     
     localStorage.clear();
     const menuTreeNode = renderMenu(MenuConfig);
@@ -101,7 +111,7 @@ const SidebarContent = ({sidebarCollapsed, setSidebarCollapsed}) => {
       </>
     );
   } else {
-    const menuTreeNode = renderMenu(JSON.parse(localStorage.getItem("menu")));
+    const menuTreeNode = renderMenu(MenuAdmin);
     return (
       <>
         <SidebarLogo sidebarCollapsed={sidebarCollapsed} setSidebarCollapsed={setSidebarCollapsed}/>
