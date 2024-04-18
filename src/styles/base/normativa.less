@@ -1,0 +1,51 @@
+.image-container {
+    text-align: center; /* Horizontally center images */
+  }
+  
+  .na-user-avatar:hover {
+    cursor: pointer;
+  }
+  .na-user-avatar {
+    padding: '2px';
+  }
+
+  .ant-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999; // Ensure high enough z-index to cover content
+  }
+
+  .background-image {
+    //position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../assets/images/background.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+  }
+
+  .na-card-homepage .ant-card-body {
+    display: none !important;
+  }
+
+  .animated {
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+  
+  .fadeIn {
+    animation: fadeIn 3s ease-in-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
