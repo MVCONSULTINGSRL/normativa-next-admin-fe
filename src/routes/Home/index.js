@@ -21,6 +21,15 @@ function Home() {
 
     return (
         <div className="gx-main-content-wrapper">
+            <Card id={1} hoverable={true} className="gx-card-widget gx-card-full" onClick={""}>
+                Scadenze nei prossimi 90 giorni
+            </Card>
+            <Card id={1} hoverable={true} className="gx-card-widget gx-card-full" onClick={""}>
+                Accessi negli ultimi 30 giorni
+            </Card>
+            <Card id={1} hoverable={true} className="gx-card-widget gx-card-full" onClick={""}>
+                Errori di accesso negli utlimi 30 giorni
+            </Card>
         </div>
     );
 }
