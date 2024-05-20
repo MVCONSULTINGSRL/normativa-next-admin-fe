@@ -1,36 +1,29 @@
 import React from "react";
-import {searchNorme, showSpinner} from "../../appRedux/actions";
-import {Card} from "antd";
-import {useState} from "react";
-import {useHistory, Link} from 'react-router-dom'
 
-import {DEFAULT_LAST_YEARS} from "../../constants/Api"
-import {getLastYears} from "../../constants/Functions"
+import Generic from "../../containers/NormativaContainers/Generic";
+import NormativaList from "../../components/NormativaComponents/List";
 
-import {useDispatch} from "react-redux";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
+import { getExpiringUsers } from "../../appRedux/actions"
 
 function Home() {
 
-
+    const columns = [
+        {title: 'Cognome', dataIndex: 'cognome', key: 'cognome', /*render: (text,record,index) => renderNormaStato(record)*/},
+        {title: 'Nome', dataIndex: 'nome', key: 'nome'},
+        {title: 'Azienda', dataIndex: 'azienda', key: 'azienda'},  
+        {title: 'Data Scadenza', dataIndex: 'data_scadenza', key: 'data_scadenza'},
+        {dataIndex: 'action', key: 'x', /*render: (text,record,index) => renderNormaAction(record)*/},
+      ];
 
     const dispatch = useDispatch();
-
-    const history = useHistory();
-
+    useEffect(() => {
+    }, []);  
 
     return (
-        <div className="gx-main-content-wrapper">
-            <Card id={1} hoverable={true} className="gx-card-widget gx-card-full" onClick={""}>
-                Scadenze nei prossimi 90 giorni
-            </Card>
-            <Card id={1} hoverable={true} className="gx-card-widget gx-card-full" onClick={""}>
-                Accessi negli ultimi 30 giorni
-            </Card>
-            <Card id={1} hoverable={true} className="gx-card-widget gx-card-full" onClick={""}>
-                Errori di accesso negli utlimi 30 giorni
-            </Card>
-        </div>
+        <Generic innerContent={<NormativaList columns={columns} onFirstLoad={getExpiringUsers(3)}/>}/>
     );
 }
 

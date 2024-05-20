@@ -77,7 +77,7 @@
     "victory": "^35.4.6"
   },
   "scripts": {
-    "start": "PORT=3001 HOST=normativanext-admin-stage.smoothware.it react-app-rewired start",
+    "start": "PORT=3001 HOST=normativanext-stage.smoothware.it react-app-rewired start",
     "build": "react-app-rewired build",
     "build-customer-stage": "REACT_APP_API_SERVER=https://stage.normativaalimentare.it:48629 react-app-rewired build",
     "build-local-stage": "REACT_APP_API_SERVER=http://normativanext-stage.smoothware.it:37422 react-app-rewired build",
